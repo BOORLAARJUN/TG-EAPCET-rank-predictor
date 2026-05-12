@@ -1,0 +1,26 @@
+{
+  "method": "eamcet_official",
+  "formula": "GASD + ((GTA - GASD) / (STA - SASD)) * (candidate_marks - SASD)",
+  "global_stats": {
+    "TS_EAMCET:2025": {
+      "mean": 80.5,
+      "std": 46.18711941656461,
+      "asd": 126.68711941656461,
+      "top_average": 160.0,
+      "count": 160
+    }
+  },
+  "cohorts": {
+    "TS_EAMCET:2025:ALL": {
+      "exam_key": "TS_EAMCET:2025",
+      "session_id": "ALL",
+      "mean": 80.5,
+      "std": 46.18711941656461,
+      "asd": 126.68711941656461,
+      "top_average": 160.0,
+      "scale": 1.0,
+      "count": 160
+    }
+  },
+  "fallback_cohort": "TS_EAMCET:2025:ALL"
+}

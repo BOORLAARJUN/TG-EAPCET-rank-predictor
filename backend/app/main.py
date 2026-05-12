@@ -9,7 +9,6 @@ from app.core.config import get_settings
 from app.core.database import Base, engine
 from app.core.model_loader import load_model_bundle
 
-
 settings = get_settings()
 
 
@@ -17,11 +16,17 @@ settings = get_settings()
 async def lifespan(app: FastAPI):
     if engine is not None:
         Base.metadata.create_all(bind=engine)
+
     app.state.model_bundle = load_model_bundle(settings)
+
     yield
 
 
-app = FastAPI(title="TS EAMCET Rank Predictor", version=settings.model_version, lifespan=lifespan)
+app = FastAPI(
+    title="TS EAMCET Rank Predictor",
+    version=settings.model_version,
+    lifespan=lifespan
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -30,6 +35,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/")
+def health():
+    return {"status": "ok"}
 
 
 app.include_router(health_router)

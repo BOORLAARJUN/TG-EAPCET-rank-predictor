@@ -1,0 +1,6 @@
+{
+  "feature_columns": [
+    "total_marks",
+    "normalized_marks"
+  ]
+}

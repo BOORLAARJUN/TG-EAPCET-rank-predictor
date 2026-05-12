@@ -8,6 +8,7 @@ import QualificationGuide from "./components/QualificationGuide.jsx";
 import ResultsPanel from "./components/ResultsPanel.jsx";
 
 export default function App() {
+  console.log("API URL:", import.meta.env.VITE_API_URL);
   const [prediction, setPrediction] = useState(null);
   const [bulk, setBulk] = useState(null);
   const [error, setError] = useState("");

@@ -6,6 +6,7 @@ import InputPanel from "./components/InputPanel.jsx";
 import InfoGrid from "./components/InfoGrid.jsx";
 import QualificationGuide from "./components/QualificationGuide.jsx";
 import ResultsPanel from "./components/ResultsPanel.jsx";
+import UpForgePromo from "./components/UpForgePromo.jsx";
 
 export default function App() {
   console.log("API URL:", API_BASE_URL);
@@ -48,6 +49,7 @@ export default function App() {
 
       <div className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-5 sm:py-6 lg:px-6 lg:py-7">
         <section className="space-y-4 sm:space-y-5">
+          <UpForgePromo />
           <InfoGrid />
           <QualificationGuide />
 

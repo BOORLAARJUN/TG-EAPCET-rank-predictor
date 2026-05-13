@@ -14,6 +14,14 @@ const branches = [
   { label: "Mechanical Engineering", value: "Mechanical" },
   { label: "Civil Engineering", value: "Civil" },
 ];
+const examShifts = [
+  { label: "May 2 Shift 1", value: "2025-05-02-S1" },
+  { label: "May 2 Shift 2", value: "2025-05-02-S2" },
+  { label: "May 3 Shift 1", value: "2025-05-03-S1" },
+  { label: "May 3 Shift 2", value: "2025-05-03-S2" },
+  { label: "May 4 Shift 1", value: "2025-05-04-S1" },
+  { label: "May 4 Shift 2", value: "2025-05-04-S2" },
+];
 
 export default function MarksForm({ onSubmit, disabled }) {
   const [values, setValues] = useState({
@@ -22,6 +30,8 @@ export default function MarksForm({ onSubmit, disabled }) {
     category: "OC",
     total_marks: 124,
     branch_preference: "Computer Science",
+    use_estimated_normalization: false,
+    shift_id: "2025-05-02-S1",
   });
 
   function update(field, value) {
@@ -36,6 +46,8 @@ export default function MarksForm({ onSubmit, disabled }) {
       category: values.category,
       total_marks: Number(values.total_marks),
       branch_preference: values.branch_preference || null,
+      use_estimated_normalization: values.use_estimated_normalization,
+      shift_id: values.use_estimated_normalization ? values.shift_id : null,
     });
   }
 
@@ -77,6 +89,32 @@ export default function MarksForm({ onSubmit, disabled }) {
           ))}
         </select>
       </label>
+      <label className="flex items-start gap-3 rounded-md border border-[#d9e1ea] bg-[#f9fbfd] p-3 text-sm font-medium">
+        <input
+          type="checkbox"
+          className="mt-1 h-4 w-4 rounded border-[#9aa8b6] text-[#0f766e]"
+          checked={values.use_estimated_normalization}
+          onChange={(event) => update("use_estimated_normalization", event.target.checked)}
+        />
+        <span>
+          Apply estimated normalization
+          <span className="block text-xs font-normal leading-5 text-[#5d6b7a]">
+            Uses hardcoded shift difficulty labels for an unofficial estimate.
+          </span>
+        </span>
+      </label>
+      {values.use_estimated_normalization && (
+        <label className="block text-sm font-medium">
+          Exam shift
+          <select className="mt-1 w-full rounded-md border border-[#cbd5df] px-3 py-2" value={values.shift_id} onChange={(event) => update("shift_id", event.target.value)}>
+            {examShifts.map((shift) => (
+              <option key={shift.value} value={shift.value}>
+                {shift.label}
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
       <button disabled={disabled} className="w-full rounded-md bg-[#0f766e] px-4 py-2 font-semibold text-white hover:bg-[#115e59] disabled:cursor-not-allowed disabled:bg-[#8bb9b4]">
         Predict Rank
       </button>

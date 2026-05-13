@@ -60,8 +60,6 @@ npm install
 npm run dev
 ```
 
-Set `VITE_API_BASE_URL` when the backend is not running on `http://localhost:8000`.
-
 ## Environment Variables
 
 Backend:
@@ -71,10 +69,6 @@ Backend:
 - `MODEL_VERSION`
 - `CORS_ORIGINS`
 - `PORT`
-
-Frontend:
-
-- `VITE_API_BASE_URL`
 
 ## Tests
 

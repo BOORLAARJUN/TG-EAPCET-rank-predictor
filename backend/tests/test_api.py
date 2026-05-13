@@ -25,6 +25,32 @@ def test_predict_success() -> None:
         body = response.json()
         assert body["predicted_rank"] > 0
         assert "colleges" in body
+        assert body["raw_predicted_marks"] is not None
+        assert body["estimated_normalization"] is None
+
+
+def test_predict_with_estimated_normalization() -> None:
+    with TestClient(app) as client:
+        response = client.post(
+            "/predict",
+            json={
+                "exam_type": "TS_EAMCET",
+                "exam_year": 2026,
+                "category": "OC",
+                "total_marks": 70,
+                "shift_id": "2025-05-02-S2",
+                "use_estimated_normalization": True,
+            },
+        )
+
+        assert response.status_code == 200
+        body = response.json()
+        assert body["raw_predicted_marks"] is not None
+        assert body["estimated_normalization"]["shift_label"] == "May 2 Shift 2"
+        assert body["estimated_normalization"]["difficulty"] == "tough"
+        assert "official TG EAPCET normalization formula" in body["estimated_normalization"]["disclaimer"]
+        assert body["estimated_normalized_rank"] is not None
+        assert set(body["estimated_normalized_rank_band"]) == {"best_case", "likely", "worst_case"}
 
 
 def test_predict_validation_failure() -> None:

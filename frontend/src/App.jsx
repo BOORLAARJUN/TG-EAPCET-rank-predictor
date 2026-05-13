@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AlertCircle } from "lucide-react";
-import { predict, predictBulk } from "./services/api.js";
+import { API_BASE_URL, predict, predictBulk } from "./services/api.js";
 import PageHeader from "./components/PageHeader.jsx";
 import InputPanel from "./components/InputPanel.jsx";
 import InfoGrid from "./components/InfoGrid.jsx";
@@ -8,7 +8,7 @@ import QualificationGuide from "./components/QualificationGuide.jsx";
 import ResultsPanel from "./components/ResultsPanel.jsx";
 
 export default function App() {
-  console.log("API URL:", import.meta.env.VITE_API_URL);
+  console.log("API URL:", API_BASE_URL);
   const [prediction, setPrediction] = useState(null);
   const [bulk, setBulk] = useState(null);
   const [error, setError] = useState("");

@@ -12,6 +12,8 @@ class PredictionRequest(BaseModel):
     category: Category = "OC"
     total_marks: float = Field(..., ge=0, le=160)
     branch_preference: str | None = None
+    shift_id: str | None = None
+    use_estimated_normalization: bool = False
 
     @field_validator("branch_preference")
     @classmethod
@@ -37,6 +39,24 @@ class CollegeSuggestion(BaseModel):
     college_priority: int | None = None
 
 
+class EstimatedNormalizationOut(BaseModel):
+    shift_id: str
+    shift_label: str
+    difficulty: str
+    adjustment_min: float
+    adjustment_max: float
+    adjusted_marks_min: float
+    adjusted_marks_max: float
+    adjusted_marks_mid: float
+    disclaimer: str
+
+
+class EstimatedNormalizedRankBand(BaseModel):
+    best_case: int
+    likely: int
+    worst_case: int
+
+
 class PredictionResponse(BaseModel):
     normalized_score: float
     predicted_rank: int
@@ -45,6 +65,15 @@ class PredictionResponse(BaseModel):
     model_version: str
     is_qualified: bool
     qualification_message: str
+
+    raw_score: float | None = None
+    raw_predicted_marks: float | None = None
+    raw_predicted_rank: int | None = None
+    raw_rank_band: RankBand | None = None
+
+    estimated_normalization: EstimatedNormalizationOut | None = None
+    estimated_normalized_rank: int | None = None
+    estimated_normalized_rank_band: EstimatedNormalizedRankBand | None = None
 
 
 class BulkPredictionRow(BaseModel):

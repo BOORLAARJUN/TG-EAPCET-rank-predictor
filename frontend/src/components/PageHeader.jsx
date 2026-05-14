@@ -14,7 +14,7 @@ export default function PageHeader({ loading }) {
           <div>
             <h1 className="text-xl font-semibold leading-tight">UpForge</h1>
             <p className="text-sm leading-6 text-[#b7c7d8]">
-              TG EAPCET rank prediction with student guidance, coding tutorials, and career direction.
+              TG EAPCET 2026 engineering rank prediction with student guidance, coding tutorials, and career direction.
             </p>
           </div>
         </div>

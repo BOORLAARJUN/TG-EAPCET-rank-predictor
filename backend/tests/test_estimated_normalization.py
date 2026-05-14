@@ -2,7 +2,7 @@ from app.core.estimated_normalization import clamp_marks, estimate_normalized_ma
 
 
 def test_tough_shift_adjusts_marks_up() -> None:
-    result = estimate_normalized_marks(70, "2025-05-02-S2")
+    result = estimate_normalized_marks(70, "2026-05-09-S2")
 
     assert result.difficulty == "tough"
     assert result.adjusted_marks_min == 71.5
@@ -10,23 +10,23 @@ def test_tough_shift_adjusts_marks_up() -> None:
     assert result.adjusted_marks_mid == 72.5
 
 
-def test_easy_shift_adjusts_marks_down() -> None:
-    result = estimate_normalized_marks(70, "2025-05-03-S2")
+def test_extremely_tough_shift_adjusts_marks_up() -> None:
+    result = estimate_normalized_marks(70, "2026-05-10-S1")
 
-    assert result.difficulty == "easy"
-    assert result.adjusted_marks_min == 68.0
-    assert result.adjusted_marks_max == 69.5
-    assert result.adjusted_marks_mid == 68.75
+    assert result.difficulty == "extremely_tough"
+    assert result.adjusted_marks_min == 73.0
+    assert result.adjusted_marks_max == 76.0
+    assert result.adjusted_marks_mid == 74.5
 
 
 def test_all_configured_shifts_return_an_estimate() -> None:
     expected_difficulties = {
-        "2025-05-02-S1": "moderate",
-        "2025-05-02-S2": "tough",
-        "2025-05-03-S1": "easy_moderate",
-        "2025-05-03-S2": "easy",
-        "2025-05-04-S1": "moderate",
-        "2025-05-04-S2": "tough",
+        "2026-05-09-S1": "moderate_tough",
+        "2026-05-09-S2": "tough",
+        "2026-05-10-S1": "extremely_tough",
+        "2026-05-10-S2": "moderate_tough",
+        "2026-05-11-S1": "moderate_tough",
+        "2026-05-11-S2": "tough",
     }
 
     for shift_id, difficulty in expected_difficulties.items():
@@ -49,9 +49,9 @@ def test_invalid_shift_id_falls_back_to_moderate() -> None:
 
 def test_marks_clamped_at_160() -> None:
     assert clamp_marks(170.25) == 160.0
-    assert estimate_normalized_marks(159, "2025-05-02-S2").adjusted_marks_max == 160.0
+    assert estimate_normalized_marks(159, "2026-05-09-S2").adjusted_marks_max == 160.0
 
 
 def test_marks_clamped_at_0() -> None:
     assert clamp_marks(-5.5) == 0.0
-    assert estimate_normalized_marks(1, "2025-05-03-S2").adjusted_marks_min == 0.0
+    assert estimate_normalized_marks(-1, "invalid-shift").adjusted_marks_min == 0.0

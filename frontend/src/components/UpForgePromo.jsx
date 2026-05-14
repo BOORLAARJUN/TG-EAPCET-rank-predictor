@@ -2,7 +2,7 @@ import React from "react";
 import { Code2, Compass, Flame, GraduationCap, Youtube } from "lucide-react";
 
 const tracks = [
-  { icon: <Compass size={17} />, label: "EAPCET guidance" },
+  { icon: <Compass size={17} />, label: "TG EAPCET 2026" },
   { icon: <GraduationCap size={17} />, label: "Mentorship" },
   { icon: <Code2 size={17} />, label: "Coding tutorials" },
   { icon: <Flame size={17} />, label: "Motivation" },
@@ -26,7 +26,7 @@ export default function UpForgePromo() {
           </div>
 
           <p className="max-w-3xl text-sm leading-6 text-[#c7d8e8]">
-            UpForge helps students move from marks and college choices to the next step:
+            UpForge helps engineering students move from TG EAPCET 2026 marks and college choices to the next step:
             guidance, mentorship, career advice, coding tutorials, and the motivation to keep improving.
           </p>
 

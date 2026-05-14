@@ -1,26 +1,27 @@
 from dataclasses import dataclass
 
 SHIFT_LABELS = {
-    "2025-05-02-S1": "May 2 Shift 1",
-    "2025-05-02-S2": "May 2 Shift 2",
-    "2025-05-03-S1": "May 3 Shift 1",
-    "2025-05-03-S2": "May 3 Shift 2",
-    "2025-05-04-S1": "May 4 Shift 1",
-    "2025-05-04-S2": "May 4 Shift 2",
+    "2026-05-09-S1": "May 9, 2026 Shift 1",
+    "2026-05-09-S2": "May 9, 2026 Shift 2",
+    "2026-05-10-S1": "May 10, 2026 Shift 1",
+    "2026-05-10-S2": "May 10, 2026 Shift 2",
+    "2026-05-11-S1": "May 11, 2026 Shift 1",
+    "2026-05-11-S2": "May 11, 2026 Shift 2",
 }
 
 SHIFT_DIFFICULTY_MAP = {
-    "2025-05-02-S1": "moderate",
-    "2025-05-02-S2": "tough",
-    "2025-05-03-S1": "easy_moderate",
-    "2025-05-03-S2": "easy",
-    "2025-05-04-S1": "moderate",
-    "2025-05-04-S2": "tough",
+    "2026-05-09-S1": "moderate_tough",
+    "2026-05-09-S2": "tough",
+    "2026-05-10-S1": "extremely_tough",
+    "2026-05-10-S2": "moderate_tough",
+    "2026-05-11-S1": "moderate_tough",
+    "2026-05-11-S2": "tough",
 }
 
 ADJUSTMENT_RULES = {
-    "very_tough": (2.5, 5.0),
+    "extremely_tough": (3.0, 6.0),
     "tough": (1.5, 3.5),
+    "moderate_tough": (0.75, 2.0),
     "moderate": (0.0, 1.0),
     "easy_moderate": (-0.5, 0.5),
     "easy": (-2.0, -0.5),

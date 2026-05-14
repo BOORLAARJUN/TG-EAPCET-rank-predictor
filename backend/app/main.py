@@ -23,7 +23,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="TS EAMCET Rank Predictor",
+    title="TG EAPCET 2026 Engineering Rank Predictor",
     version=settings.model_version,
     lifespan=lifespan
 )

@@ -1,14 +1,13 @@
-<<<<<<< HEAD
-# TS EAMCET Rank and College Predictor
+# TG EAPCET 2026 Engineering Rank and College Predictor
 
-A compact full-stack predictor for TS EAMCET marks. The backend normalizes marks, predicts an expected rank with a saved sklearn model, and maps the rank to likely colleges from historical cutoff data. The frontend provides single prediction and CSV upload flows.
+A compact full-stack predictor for TG EAPCET 2026 engineering marks. The backend predicts an expected rank with a saved sklearn model, offers an unofficial 2026 shift-difficulty adjustment, and maps the rank to likely engineering colleges from historical cutoff data. The frontend provides single prediction and CSV upload flows.
 
 ## Project Layout
 
 ```text
 backend/
   app/                 FastAPI app, schemas, services, SQLAlchemy models
-  data/                Demo TS EAMCET training and cutoff CSVs
+  data/                Demo TG EAPCET/TS EAMCET training and cutoff CSVs
   training/            Offline model training script
   artifacts/           Generated model files after training
 frontend/
@@ -79,7 +78,4 @@ pytest
 
 ## Notes
 
-The included seed data is demo data for development and smoke testing. Replace `backend/data/seed_training_data.csv` and `backend/data/seed_college_cutoffs.csv` with verified historical TS EAMCET data before relying on predictions.
-=======
-# TG-EAPCET-rank-predictor
->>>>>>> fd67c697f51e1972e53e452b9567b2b44061b7f3
+The included seed data is demo data for development and smoke testing. The 2026 engineering shift list covers May 9, 10, and 11, 2026, with unofficial difficulty labels based on public post-exam analysis. Replace `backend/data/seed_training_data.csv` and `backend/data/seed_college_cutoffs.csv` with verified official TG EAPCET data before relying on predictions.

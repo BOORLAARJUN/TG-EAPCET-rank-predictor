@@ -6,7 +6,7 @@ export default function QualificationGuide() {
     <section className="rounded-md border border-[#cfe1ef] bg-[#f7fbff] p-4 sm:p-5">
       <div className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-[#245b86]">
         <ShieldCheck size={16} />
-        EAMCET Qualification Marks
+        TG EAPCET 2026 Engineering Qualification Marks
       </div>
 
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
@@ -35,7 +35,7 @@ export default function QualificationGuide() {
         <ul className="space-y-2 text-sm leading-6 text-[#5d6b7a]">
           <li>Qualifying the exam does not guarantee a seat.</li>
           <li>Admission still depends on rank, category, branch choice, and college closing ranks.</li>
-          <li>Rank prediction and college matching are estimates for decision support.</li>
+          <li>The engineering exam was held on May 9, 10, and 11, 2026; shift normalization shown here is unofficial.</li>
         </ul>
       </div>
     </section>

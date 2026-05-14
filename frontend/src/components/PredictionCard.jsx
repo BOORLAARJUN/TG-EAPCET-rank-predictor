@@ -1,7 +1,7 @@
 import React from "react";
 
 const NORMALIZATION_DISCLAIMER =
-  "This is an unofficial estimate based on shift difficulty labels and historical-style adjustment. It is not the official TG EAPCET normalization formula.";
+  "This is an unofficial estimate based on TG EAPCET 2026 engineering shift difficulty reports and historical-style adjustment. It is not the official TG EAPCET normalization formula.";
 
 export default function PredictionCard({ prediction, compact = false }) {
   const rawMarks = prediction.raw_predicted_marks ?? prediction.raw_score ?? prediction.normalized_score;

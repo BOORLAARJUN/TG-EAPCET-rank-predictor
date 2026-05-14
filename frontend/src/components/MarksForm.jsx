@@ -15,12 +15,12 @@ const branches = [
   { label: "Civil Engineering", value: "Civil" },
 ];
 const examShifts = [
-  { label: "May 2 Shift 1", value: "2025-05-02-S1" },
-  { label: "May 2 Shift 2", value: "2025-05-02-S2" },
-  { label: "May 3 Shift 1", value: "2025-05-03-S1" },
-  { label: "May 3 Shift 2", value: "2025-05-03-S2" },
-  { label: "May 4 Shift 1", value: "2025-05-04-S1" },
-  { label: "May 4 Shift 2", value: "2025-05-04-S2" },
+  { label: "May 9, 2026 Shift 1", value: "2026-05-09-S1" },
+  { label: "May 9, 2026 Shift 2", value: "2026-05-09-S2" },
+  { label: "May 10, 2026 Shift 1", value: "2026-05-10-S1" },
+  { label: "May 10, 2026 Shift 2", value: "2026-05-10-S2" },
+  { label: "May 11, 2026 Shift 1", value: "2026-05-11-S1" },
+  { label: "May 11, 2026 Shift 2", value: "2026-05-11-S2" },
 ];
 
 export default function MarksForm({ onSubmit, disabled }) {
@@ -31,7 +31,7 @@ export default function MarksForm({ onSubmit, disabled }) {
     total_marks: 124,
     branch_preference: "Computer Science",
     use_estimated_normalization: false,
-    shift_id: "2025-05-02-S1",
+    shift_id: "2026-05-09-S1",
   });
 
   function update(field, value) {
@@ -56,7 +56,7 @@ export default function MarksForm({ onSubmit, disabled }) {
       <label className="block text-sm font-medium">
         Exam Type
         <select className="mt-1 w-full rounded-md border border-[#cbd5df] px-3 py-2" value={values.exam_type} onChange={(event) => update("exam_type", event.target.value)}>
-          <option value="TS_EAMCET">TS EAMCET</option>
+          <option value="TS_EAMCET">TG EAPCET 2026 Engineering</option>
         </select>
       </label>
       <div className="grid grid-cols-2 gap-3">
@@ -99,7 +99,7 @@ export default function MarksForm({ onSubmit, disabled }) {
         <span>
           Apply estimated normalization
           <span className="block text-xs font-normal leading-5 text-[#5d6b7a]">
-            Uses hardcoded shift difficulty labels for an unofficial estimate.
+            Uses 2026 engineering shift difficulty reports for an unofficial estimate.
           </span>
         </span>
       </label>

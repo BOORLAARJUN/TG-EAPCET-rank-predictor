@@ -18,7 +18,7 @@ QUALIFYING_MARKS = 40
 SC_ST_PREFIXES = ("SC", "ST")
 OPEN_CATEGORY_VALUES = {"OC", "GENERAL", "BC", "OBC", "BC_A", "BC_B", "BC_C", "BC_D", "BC_E"}
 ESTIMATED_NORMALIZATION_DISCLAIMER = (
-    "This is an unofficial estimate based on shift difficulty labels, "
+    "This is an unofficial estimate based on TG EAPCET 2026 engineering shift difficulty reports, "
     "not the official TG EAPCET normalization formula."
 )
 

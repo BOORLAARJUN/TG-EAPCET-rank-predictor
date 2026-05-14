@@ -35,8 +35,8 @@ export default function ResultsPanel({ prediction, bulk }) {
           <GraduationCap className="mx-auto mb-4 text-[#0f766e]" size={42} />
           <h2 className="text-base font-semibold sm:text-lg">Ready for a prediction</h2>
           <p className="mt-2 max-w-sm text-sm leading-6 text-[#5d6b7a]">
-            Enter marks or upload a CSV to see qualification status, normalized score,
-            predicted rank, rank band, and college shortlist results.
+            Enter TG EAPCET 2026 engineering marks or upload a CSV to see qualification status,
+            predicted rank, shift-adjusted estimate, and college shortlist results.
           </p>
         </div>
       </div>

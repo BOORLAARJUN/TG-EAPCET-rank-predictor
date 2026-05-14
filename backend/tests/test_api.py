@@ -38,7 +38,7 @@ def test_predict_with_estimated_normalization() -> None:
                 "exam_year": 2026,
                 "category": "OC",
                 "total_marks": 70,
-                "shift_id": "2025-05-02-S2",
+                "shift_id": "2026-05-10-S1",
                 "use_estimated_normalization": True,
             },
         )
@@ -46,8 +46,9 @@ def test_predict_with_estimated_normalization() -> None:
         assert response.status_code == 200
         body = response.json()
         assert body["raw_predicted_marks"] is not None
-        assert body["estimated_normalization"]["shift_label"] == "May 2 Shift 2"
-        assert body["estimated_normalization"]["difficulty"] == "tough"
+        assert body["estimated_normalization"]["shift_label"] == "May 10, 2026 Shift 1"
+        assert body["estimated_normalization"]["difficulty"] == "extremely_tough"
+        assert "2026 engineering shift difficulty reports" in body["estimated_normalization"]["disclaimer"]
         assert "official TG EAPCET normalization formula" in body["estimated_normalization"]["disclaimer"]
         assert body["estimated_normalized_rank"] is not None
         assert set(body["estimated_normalized_rank_band"]) == {"best_case", "likely", "worst_case"}
